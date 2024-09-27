@@ -31,6 +31,8 @@ public class User implements UserDetails {
 
     @Column(unique = true)
     private String email;
+    private String phone;
+    private LocalDate birthDate;
     private String password;
 
     @ManyToMany
@@ -45,6 +47,8 @@ public class User implements UserDetails {
     public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
         this.id = id;
         this.name = name;
+        this.phone = phone;
+        this.birthDate = birthDate;
         this.email = email;
         this.password = password;
     }
@@ -73,6 +77,22 @@ public class User implements UserDetails {
         this.email = email;
     }
 
+    public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+	
     public String getPassword() {
         return password;
     }
@@ -137,4 +157,6 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+	
 }
